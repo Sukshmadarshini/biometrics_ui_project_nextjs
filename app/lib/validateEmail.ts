@@ -124,9 +124,9 @@ export async function validateEmail(email: string) {
 
   /* Fake local parts */
   const fakePatterns = [
-    // /^(test|fake|asdf|qwerty|noreply|no-reply|donotreply|spam|trash|throwaway|temp)\d*$/i,
+    /^(test|fake|asdf|qwerty|noreply|no-reply|donotreply|spam|trash|throwaway|temp)\d*$/i,
     /^(.)\1{4,}$/,
-    /^\d+$/,
+    // /^\d+$/,
   ];
   for (const pattern of fakePatterns) {
     if (pattern.test(local)) {
