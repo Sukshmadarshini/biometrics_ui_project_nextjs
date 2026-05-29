@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
         replyTo: process.env.EMAIL_TO!,
-        subject: `Seat Confirmed for ${lectureTitle} — Registration complete`,
+        subject: `Seat Confirmed for ${lectureTitle} - Registration complete`,
         react: ComplementaryLectureEmail({
           name,
           email,
