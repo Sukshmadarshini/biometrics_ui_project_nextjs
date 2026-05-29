@@ -409,8 +409,8 @@ export async function POST(req: NextRequest) {
       // 1️⃣  To the student — payment instructions
       resend.emails.send({
         from:    process.env.CLIENT_EMAIL_FROM!,
-        to:      email,
-        replyTo: process.env.EMAIL_TO!,
+        to:      process.env.EMAIL_TO!,
+        // replyTo: email,
         subject: `Seat Reserved for ${lectureTitle} - Payment details inside`,
         react: LectureEmail({
           name,
@@ -431,7 +431,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
-        replyTo: email,
+        // replyTo: email,
         subject: `New Lecture Registration: ${lectureTitle} - ${name}`,
         react: ReturnLectureEmail({
           name,

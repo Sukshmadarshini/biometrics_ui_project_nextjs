@@ -299,7 +299,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
-        replyTo: email,
+        // replyTo: email,
         subject: `Workshop Enquiry for ${workshopTitle} - ${instituteName}`,
         react:   WorkshopEmail({
           contactName,
@@ -318,8 +318,8 @@ export async function POST(req: NextRequest) {
       // 2️⃣  To the institute contact — acknowledgement of their enquiry
       resend.emails.send({
         from:    process.env.CLIENT_EMAIL_FROM!,
-        to:      email,
-        replyTo: process.env.EMAIL_TO!,
+        to:      process.env.EMAIL_TO!,
+        // replyTo: email,
         subject: `We received your workshop enquiry for ${workshopTitle}`,
         react:   ReturnWorkshopEmail({
           contactName,
