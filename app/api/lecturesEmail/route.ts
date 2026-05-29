@@ -411,7 +411,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
         replyTo: process.env.EMAIL_TO!,
-        subject: `Seat Reserved for ${lectureTitle} - Complete Your Payment`,
+        subject: `Seat Reserved for ${lectureTitle} - Payment details inside`,
         react: LectureEmail({
           name,
           email,
