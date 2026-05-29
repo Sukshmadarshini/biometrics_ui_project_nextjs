@@ -300,7 +300,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
         replyTo: email,
-        subject: `[Workshop Enquiry] ${workshopTitle} — ${instituteName}`,
+        subject: `Workshop Enquiry for ${workshopTitle} - ${instituteName}`,
         react:   WorkshopEmail({
           contactName,
           email,
@@ -320,7 +320,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
         replyTo: process.env.EMAIL_TO!,
-        subject: `We received your workshop enquiry — ${workshopTitle}`,
+        subject: `We received your workshop enquiry for ${workshopTitle}`,
         react:   ReturnWorkshopEmail({
           contactName,
           email,

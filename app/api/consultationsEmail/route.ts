@@ -427,7 +427,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
         replyTo: process.env.EMAIL_TO!,
-        subject: `[Booking Confirmed] ${serviceTitle} — Complete Your Payment`,
+        subject: `Booking Confirmed for ${serviceTitle} - Payment details inside`,
         react: ConsultationEmail({
           name,
           email,
@@ -448,7 +448,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
         replyTo: email,
-        subject: `[New Consultation Registration] ${serviceTitle} — ${name}`,
+        subject: `New Consultation Registration for ${serviceTitle} - ${name}`,
         react: ReturnConsultationEmail({
           name,
           email,

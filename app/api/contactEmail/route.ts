@@ -209,7 +209,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
         replyTo: email,
-        subject: `[Contact Form] ${subject}`,
+        subject: `Contact Form: ${subject}`,
         react:   ContactEmail({ name, email, subject, message }),
       }),
 
@@ -218,7 +218,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
         replyTo: process.env.EMAIL_TO!,
-        subject: `We received your message — ${subject}`,
+        subject: `We received your message - ${subject}`,
         react:   ReturnContactEmail({ name, email, subject, message }),
       }),
     ]);
