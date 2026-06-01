@@ -1565,6 +1565,95 @@ export default function CareersComponent({ data }: { data: CareersData }) {
 
   /* ── Submit ──────────────────────────────────────────────────────────────── */
 
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   setTouched({ name: true, email: true, whyHire: true, extracurriculars: true });
+
+  //   if (emailCheckStatus === "checking") {
+  //     toast({ title: "Please wait", description: "Verifying email address…" });
+  //     return;
+  //   }
+
+  //   const newErrors: Partial<Record<keyof ApplyForm | "resume", string>> = {};
+
+  //   // Name
+  //   const nameError = validateName(form.name);
+  //   if (nameError) newErrors.name = nameError;
+
+  //   // Email format
+  //   const emailFormatError = validateEmailFormat(form.email);
+  //   if (emailFormatError) {
+  //     newErrors.email = emailFormatError;
+  //   } else if (emailCheckStatus === "invalid") {
+  //     newErrors.email = errors.email ?? "This email address could not be verified.";
+  //   } else if (emailCheckStatus === "idle") {
+  //     // Not checked yet — run it now before proceeding
+  //     setSubmitting(true);
+  //     setEmailCheckStatus("checking");
+  //     const result = await checkEmail(form.email);
+  //     setEmailCheckStatus(result.valid ? "valid" : "invalid");
+  //     if (!result.valid) {
+  //       newErrors.email = result.reason ?? "This email address could not be verified.";
+  //     }
+  //     setSubmitting(false);
+  //   }
+
+  //   // Zod fields
+  //   const zodResult = applicationSchema.safeParse(form);
+  //   if (!zodResult.success) {
+  //     zodResult.error.issues.forEach((i) => {
+  //       if (i.path[0]) newErrors[i.path[0] as keyof ApplyForm] = i.message;
+  //     });
+  //   }
+
+  //   // Resume
+  //   if (!resumeFile) newErrors.resume = "Please attach your resume";
+
+  //   setErrors(newErrors);
+
+  //   if (Object.values(newErrors).some(Boolean)) {
+  //     toast({
+  //       title: "Please fix the errors",
+  //       description: "Some fields contain invalid values.",
+  //       variant: "destructive",
+  //     });
+  //     return;
+  //   }
+
+  //   // All good — open mailto
+  //   const subject = `Application: ${applyJob?.title ?? ""}`;
+  //   const body = [
+  //     `Name: ${form.name}`,
+  //     `Email: ${form.email}`,
+  //     `Position: ${applyJob?.title ?? ""}`,
+  //     "",
+  //     "Why we should hire me:",
+  //     form.whyHire,
+  //     "",
+  //     "Extracurricular activities / shareable links:",
+  //     form.extracurriculars || "—",
+  //     "",
+  //     `Resume: ${resumeFile!.name} (please find attached)`,
+  //   ].join("\n");
+
+  //   window.location.href = `mailto:sukshmadarshini@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  //   toast({
+  //     title: "Opening your email client",
+  //     description: "Please attach your resume file before sending.",
+  //   });
+
+  //   setApplyJob(null);
+  // };
+
+  // const emailBorderClass =
+  //   touched.email && errors.email
+  //     ? "border-destructive focus-visible:ring-destructive"
+  //     : emailCheckStatus === "valid"
+  //     ? "border-green-500 focus-visible:ring-green-500"
+  //     : "";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -1588,7 +1677,6 @@ export default function CareersComponent({ data }: { data: CareersData }) {
     } else if (emailCheckStatus === "invalid") {
       newErrors.email = errors.email ?? "This email address could not be verified.";
     } else if (emailCheckStatus === "idle") {
-      // Not checked yet — run it now before proceeding
       setSubmitting(true);
       setEmailCheckStatus("checking");
       const result = await checkEmail(form.email);
@@ -1621,30 +1709,51 @@ export default function CareersComponent({ data }: { data: CareersData }) {
       return;
     }
 
-    // All good — open mailto
-    const subject = `Application: ${applyJob?.title ?? ""}`;
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Position: ${applyJob?.title ?? ""}`,
-      "",
-      "Why we should hire me:",
-      form.whyHire,
-      "",
-      "Extracurricular activities / shareable links:",
-      form.extracurriculars || "—",
-      "",
-      `Resume: ${resumeFile!.name} (please find attached)`,
-    ].join("\n");
+    // ── Send via API ────────────────────────────────────────────────────────
+    try {
+      setSubmitting(true);
 
-    window.location.href = `mailto:sukshmadarshini@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const fd = new FormData();
+      fd.append("name",             form.name);
+      fd.append("email",            form.email);
+      fd.append("position",         applyJob?.title ?? "");
+      fd.append("whyHire",          form.whyHire);
+      fd.append("extracurriculars", form.extracurriculars ?? "");
+      fd.append("resume",           resumeFile!); // File object — browser sets multipart boundary automatically
 
-    toast({
-      title: "Opening your email client",
-      description: "Please attach your resume file before sending.",
-    });
+      const res = await fetch("/api/careerEmail", {
+        method: "POST",
+        body: fd,
+        // ↑ Do NOT set Content-Type manually; the browser must set it with the boundary
+      });
 
-    setApplyJob(null);
+      const json = await res.json();
+
+      if (!res.ok || !json.success) {
+        toast({
+          title: "Submission failed",
+          description: json.error ?? "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Application sent! ✅",
+        description: "We've received your application and will be in touch soon.",
+      });
+
+      setApplyJob(null);
+
+    } catch {
+      toast({
+        title: "Network error",
+        description: "Could not reach the server. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const emailBorderClass =
@@ -1654,6 +1763,7 @@ export default function CareersComponent({ data }: { data: CareersData }) {
       ? "border-green-500 focus-visible:ring-green-500"
       : "";
 
+      
   /* ── Render ──────────────────────────────────────────────────────────────── */
 
   return (
