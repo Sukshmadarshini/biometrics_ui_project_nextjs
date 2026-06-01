@@ -270,4 +270,47 @@ export async function appendCollaborationInquiry(data: {
     },
   });
 }
- 
+
+// ─── Career Applications ──────────────────────────────────────────────────────
+// Columns: Date | Name | Email | Position | Why Hire | Extracurriculars | Timestamp | Source
+
+export async function appendCareerSubmission(data: {
+  name:             string;
+  email:            string;
+  position:         string;
+  whyHire:          string;
+  extracurriculars: string;
+}) {
+  const auth = getAuth();
+  const sheets = google.sheets({ version: "v4", auth });
+
+  const now = new Date();
+
+  const timestamp = now.toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    year:     "numeric",
+    month:    "2-digit",
+    day:      "2-digit",
+    hour:     "2-digit",
+    minute:   "2-digit",
+    second:   "2-digit",
+  });
+
+  await sheets.spreadsheets.values.append({
+    spreadsheetId: SHEET_ID,
+    range:         "Career Applications!A:H",
+    valueInputOption: "USER_ENTERED",
+    requestBody: {
+      values: [[
+        now.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata" }), // A: Date
+        data.name,                                                       // B: Name
+        data.email,                                                      // C: Email
+        data.position,                                                   // D: Position Applied
+        data.whyHire,                                                    // E: Why Hire
+        data.extracurriculars || "—",                                    // F: Extracurriculars
+        timestamp,                                                       // G: Timestamp (IST)
+        "Website Careers Form",                                          // H: Source
+      ]],
+    },
+  });
+}
