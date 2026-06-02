@@ -215,7 +215,7 @@ export default function ReturnCareerEmail({ name, email, position }: ReturnCaree
               </Column>
               <Column style={{ verticalAlign: "middle", paddingLeft: "12px" }}>
                 <Text style={{ margin: 0, color: "#ffffff", fontSize: "20px", fontWeight: "bold" }}>
-                  Application Received ✅
+                  Application Received
                 </Text>
                 <Text style={{ margin: 0, color: "#c7cbe8", fontSize: "13px" }}>Sukshmadarshini™</Text>
               </Column>
@@ -228,7 +228,7 @@ export default function ReturnCareerEmail({ name, email, position }: ReturnCaree
               Hi <strong>{name}</strong>,
             </Text>
             <Text style={{ fontSize: "14px", margin: "0 0 20px 0", lineHeight: "1.6" }}>
-              Thank you for applying to Sukshmadarshini™. We have successfully received your application for the <strong>{position}</strong> role. Our team will review it and get back to you within <strong>5–7 business days</strong>.
+              Thank you for applying to Sukshmadarshini™. We have successfully received your application for the <strong>{position}</strong> role. Our team will review it and get back to you within <strong>5 to 7 business days</strong>.
             </Text>
 
             <Text style={{ fontWeight: "bold", fontSize: "13px", color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 8px 0" }}>
@@ -256,7 +256,7 @@ export default function ReturnCareerEmail({ name, email, position }: ReturnCaree
             <Section style={{ backgroundColor: "#eef0f9", borderLeft: "4px solid #31366d", borderRadius: "6px", padding: "12px 16px", marginBottom: "20px" }}>
               <Text style={{ margin: 0, fontSize: "14px", fontWeight: "bold", color: "#31366d" }}>What happens next?</Text>
               <Text style={{ margin: "8px 0 4px 0", fontSize: "13px", color: "#374151" }}>📋 Our team will review your resume and cover letter.</Text>
-              <Text style={{ margin: "0 0 4px 0", fontSize: "13px", color: "#374151" }}>🕐 We aim to respond within 5–7 business days.</Text>
+              <Text style={{ margin: "0 0 4px 0", fontSize: "13px", color: "#374151" }}>🕐 We aim to respond within 5 to 7 business days.</Text>
               <Text style={{ margin: 0, fontSize: "13px", color: "#374151" }}>📧 You&apos;ll hear back at <strong>{email}</strong>.</Text>
             </Section>
 
@@ -272,7 +272,7 @@ export default function ReturnCareerEmail({ name, email, position }: ReturnCaree
           <Hr style={{ borderColor: "#e2e8f0", margin: 0 }} />
           <Section style={{ backgroundColor: "#f9fafb", padding: "15px", textAlign: "center" }}>
             <Text style={{ fontSize: "12px", color: "#6b7280", margin: 0 }}>
-              This is an automated acknowledgement from Sukshmadarshini™. Please do not reply to this address.
+              This email was sent from Sukshmadarshini™
             </Text>
           </Section>
 

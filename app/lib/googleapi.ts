@@ -234,7 +234,7 @@ export async function appendContactSubmission(data: {
   });
 }
 
-export async function appendCollaborationInquiry(data: {
+export async function appendCollaborationEnquiry(data: {
   name: string;
   email: string;
   organization: string;

@@ -69,7 +69,7 @@
 //     const priceDisplay = lecture.priceLabel ?? `₹${lecture.price}`;
 
 //     // ────────────────────────────────────────────────────────
-//     // 💳 UPI CONFIG
+//     // UPI CONFIG
 //     // ────────────────────────────────────────────────────────
 //     const upiId = process.env.UPI_ID;
 //     const upiName = process.env.UPI_NAME ?? "Sukshmadarshini";

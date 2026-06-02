@@ -1739,7 +1739,7 @@ export default function CareersComponent({ data }: { data: CareersData }) {
       }
 
       toast({
-        title: "Application sent! ✅",
+        title: "Your application was sent.",
         description: "We've received your application and will be in touch soon.",
       });
 
@@ -2003,7 +2003,7 @@ export default function CareersComponent({ data }: { data: CareersData }) {
                 <DialogHeader>
                   <DialogTitle className="font-display text-xl">Apply: {applyJob.title}</DialogTitle>
                   <DialogDescription>
-                    Fill in your details below. Your email client will open to send the application — please attach your resume before sending.
+                    Fill in your details below. Your email client will open to send the application so please attach your resume before sending.
                   </DialogDescription>
                 </DialogHeader>
 

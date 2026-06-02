@@ -86,7 +86,7 @@ export default function ReturnConsultationEmail({
               </Column>
               <Column style={{ verticalAlign: "middle", paddingLeft: "12px" }}>
                 <Text style={{ margin: 0, color: "#ffffff", fontSize: "20px", fontWeight: "bold" }}>
-                  New Consultation Registration 📋
+                  New Consultation Registration
                 </Text>
                 <Text style={{ margin: 0, color: "#94a3b8", fontSize: "13px" }}>
                   Sukshmadarshini™ · Internal Notification
@@ -190,9 +190,9 @@ export default function ReturnConsultationEmail({
               }}
             >
               <Text style={{ margin: 0, fontSize: "14px", color: "#854d0e" }}>
-                ⏳ <strong>Action required:</strong> Verify payment using the transaction reference above.
+                <strong>Action required:</strong> Verify payment using the transaction reference above.
                 Confirm the booking by replying to the client&apos;s email once payment is received.
-                Slot will auto-cancel if payment is not received <strong>1 hour prior</strong> to the session.
+                Slot will auto-cancel if payment is not received <strong>1 day prior</strong> to the session.
               </Text>
             </Section>
 

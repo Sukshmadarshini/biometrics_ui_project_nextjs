@@ -309,7 +309,7 @@ export default function CareerEmail({
               </Column>
               <Column style={{ verticalAlign: "middle", paddingLeft: "12px" }}>
                 <Text style={{ margin: 0, color: "#ffffff", fontSize: "20px", fontWeight: "bold" }}>
-                  New Job Application 💼
+                  New Job Application
                 </Text>
                 <Text style={{ margin: 0, color: "#c7cbe8", fontSize: "13px" }}>
                   Sukshmadarshini™ · Careers
@@ -440,7 +440,7 @@ export default function CareerEmail({
               }}
             >
               <Text style={{ margin: 0, fontSize: "14px", color: "#854d0e" }}>
-                📎 <strong>Resume attached</strong> — see the attachment in this email.
+                📎 <strong>Resume attached</strong>: see the attachment in this email.
               </Text>
             </Section>
           </Section>

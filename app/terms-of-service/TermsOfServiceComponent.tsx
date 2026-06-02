@@ -287,7 +287,7 @@ export default function TermsOfService({ data }: { data: TermsOfServiceData }) {
                         month: "short",
                         year: "numeric",
                       })
-                    : "—"}
+                    : "N/A"}
                 </span>
               <span>•</span>
               <span>sukshmadarshini.com</span>

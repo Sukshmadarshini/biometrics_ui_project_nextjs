@@ -2149,7 +2149,7 @@ export default function ConsultationDetailDialog({
       if (!emailRes.ok || !emailData.success) {
         console.warn("[consultationEmail] Email send failed:", emailData.error);
         toast({
-          title: "Slot booked — email issue",
+          title: "Slot booked: email issue",
           description: "Your slot is confirmed but the payment email could not be sent. Please contact us.",
         });
       }
@@ -2452,7 +2452,7 @@ export default function ConsultationDetailDialog({
                   <CircleAlert className="w-4 h-4 mr-1 text-rose-600" />
                   <span className="font-semibold text-xs text-rose-600">Slot Held Temporarily:</span>
                   <span className="font-semibold text-xs text-primary ml-1">
-                    It will auto-cancel if unpaid 1 hour prior.
+                    It will auto-cancel if unpaid 1 day prior.
                   </span>
                 </div>
               </div>

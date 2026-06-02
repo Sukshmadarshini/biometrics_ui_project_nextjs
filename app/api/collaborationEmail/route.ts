@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import CollaborationEmail from "@/app/components/emails/CollaborationEmail";
 import ReturnCollaborationEmail from "@/app/components/emails/ReturnCollaborationEmail";
-import { appendCollaborationInquiry } from "@/app/lib/googleapi";
+import { appendCollaborationEnquiry } from "@/app/lib/googleapi";
 
 export const dynamic = "force-dynamic";
 
@@ -101,7 +101,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
         // replyTo: email,
-        subject: `Collaboration Inquiry for ${collaborationType} - ${organization}`,
+        subject: `Collaboration Enquiry for ${collaborationType} - ${organization}`,
         react:   CollaborationEmail({ name, email, organization, collaborationType, message }),
       }),
 
@@ -110,7 +110,7 @@ export async function POST(req: NextRequest) {
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
         // replyTo: email,
-        subject: `We received your collaboration inquiry for ${collaborationType}`,
+        subject: `We received your collaboration enquiry for ${collaborationType}`,
         react:   ReturnCollaborationEmail({ name, email, organization, collaborationType, message }),
       }),
     ]);
@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
 
     // ── Google Sheets append ─────────────────────────────────
     try {
-      await appendCollaborationInquiry({ name, email, organization, collaborationType, message });
+      await appendCollaborationEnquiry({ name, email, organization, collaborationType, message });
     } catch (sheetErr) {
       console.error("[collaborationEmail] Google Sheets append failed:", sheetErr);
     }

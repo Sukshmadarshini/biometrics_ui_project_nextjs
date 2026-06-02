@@ -279,7 +279,7 @@ export default function PrivacyPolicy({ data }: { data: PrivacyData }) {
                         month: "short",
                         year: "numeric",
                       })
-                    : "—"}
+                    : "N/A"}
                 </span>
                 <span>•</span>
                 <span>sukshmadarshini.com</span>

@@ -2121,7 +2121,7 @@ export default function WorkshopDetailDialog({
             </DialogTitle>
             <DialogDescription>
               {step === "form"
-                ? "Fill in your institute details and we'll get back to you shortly"
+                ? "Fill in your institute details and we will get back to you shortly"
                 : "Our team will reach out to confirm scheduling and details"}
             </DialogDescription>
           </DialogHeader>
@@ -2250,7 +2250,7 @@ export default function WorkshopDetailDialog({
                 <Label htmlFor="estimatedParticipants">Estimated Number of Participants *</Label>
                 <Input
                   id="estimatedParticipants"
-                  placeholder="e.g. 30–50 students"
+                  placeholder="e.g. 30-50 students"
                   value={formData.estimatedParticipants}
                   onChange={(e) => handleChange("estimatedParticipants", e.target.value)}
                   onBlur={() => handleBlur("estimatedParticipants")}
@@ -2336,7 +2336,7 @@ export default function WorkshopDetailDialog({
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Our team will review your enquiry and reach out to{" "}
                 <span className="font-semibold text-foreground">{formData.email}</span>{" "}
-                within 1-2 business days to discuss scheduling, pricing, and logistics.
+                within 1 to 2 business days to discuss scheduling, pricing, and logistics.
               </p>
               <div className="flex flex-row items-center">
                 <CircleAlert className="w-4 h-4 mr-1 text-amber-500 shrink-0" />

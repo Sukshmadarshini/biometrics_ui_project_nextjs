@@ -64,7 +64,7 @@ export default function CollaborationEmail({
               </Column>
               <Column style={{ verticalAlign: "middle", paddingLeft: "12px" }}>
                 <Text style={{ margin: 0, color: "#ffffff", fontSize: "20px", fontWeight: "bold" }}>
-                  New Collaboration Inquiry 🤝
+                  New Collaboration Enquiry
                 </Text>
                 <Text style={{ margin: 0, color: "#94a3b8", fontSize: "13px" }}>
                   Sukshmadarshini™ · Internal Notification
@@ -76,10 +76,10 @@ export default function CollaborationEmail({
           {/* ── Body ── */}
           <Section style={{ padding: "28px 25px 4px 25px", color: "#333333" }}>
             <Text style={{ fontSize: "14px", margin: "0 0 20px 0", lineHeight: "1.6" }}>
-              A new collaboration inquiry has been submitted via the website. Review the details below and follow up with the applicant.
+              A new collaboration enquiry has been submitted via the website. Review the details below and follow up with the applicant.
             </Text>
 
-            {/* Inquiry type badge */}
+            {/* Enquiry type badge */}
             <Section
               style={{
                 backgroundColor: "#f1f5f9",
@@ -165,7 +165,7 @@ export default function CollaborationEmail({
               }}
             >
               <Text style={{ margin: 0, fontSize: "14px", color: "#854d0e" }}>
-                ⏳ <strong>Action required:</strong> Reply to this inquiry at <strong>{email}</strong> within 2–3 business days.
+                <strong>Action required:</strong> Reply to this enquiry at <strong>{email}</strong> within 2 to 3 business days.
               </Text>
             </Section>
           </Section>
@@ -174,7 +174,7 @@ export default function CollaborationEmail({
           <Hr style={{ borderColor: "#e2e8f0", margin: 0 }} />
           <Section style={{ backgroundColor: "#f9fafb", padding: "15px", textAlign: "center" }}>
             <Text style={{ fontSize: "12px", color: "#6b7280", margin: 0 }}>
-              This inquiry was submitted via the Sukshmadarshini™ Collaborations page.
+              This enquiry was submitted via the Sukshmadarshini™ Collaborations page.
             </Text>
           </Section>
         </Container>

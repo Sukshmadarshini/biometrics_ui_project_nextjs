@@ -96,14 +96,14 @@
 // //     }
 // //     setErrors({});
 
-// //     const subject = encodeURIComponent(`Collaboration Inquiry — ${form.organization}`);
+// //     const subject = encodeURIComponent(`Collaboration Enquiry — ${form.organization}`);
 // //     const body = encodeURIComponent(
 // //       `Name: ${form.name}\nEmail: ${form.email}\nOrganization: ${form.organization}\nCollaboration Type: ${form.collaborationType}\n\nMessage:\n${form.message}`
 // //     );
 // //     window.location.href = `mailto:contact@sukshmadarshini.com?subject=${subject}&body=${body}`;
 
 // //     toast({
-// //       title: "Inquiry ready to send",
+// //       title: "Enquiry ready to send",
 // //       description: "Your email client should open with the message pre-filled.",
 // //     });
 
@@ -277,7 +277,7 @@
 // //                 type="submit"
 // //                 className="w-full rounded-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
 // //               >
-// //                 Send Inquiry
+// //                 Send Enquiry
 // //               </Button>
 // //             </form>
 // //           </div>
@@ -391,14 +391,14 @@
 //   //   }
 //   //   setErrors({});
 
-//   //   const subject = encodeURIComponent(`Collaboration Inquiry — ${form.organization}`);
+//   //   const subject = encodeURIComponent(`Collaboration Enquiry — ${form.organization}`);
 //   //   const body = encodeURIComponent(
 //   //     `Name: ${form.name}\nEmail: ${form.email}\nOrganization: ${form.organization}\nCollaboration Type: ${form.collaborationType}\n\nMessage:\n${form.message}`
 //   //   );
 //   //   window.location.href = `mailto:contact@sukshmadarshini.com?subject=${subject}&body=${body}`;
 
 //   //   toast({
-//   //     title: "Inquiry ready to send",
+//   //     title: "Enquiry ready to send",
 //   //     description: "Your email client should open with the message pre-filled.",
 //   //   });
 
@@ -438,7 +438,7 @@
 //       }
  
 //       toast({
-//         title: "Inquiry sent!",
+//         title: "Enquiry sent!",
 //         description: "We've received your collaboration inquiry and will be in touch shortly.",
 //       });
  
@@ -663,14 +663,14 @@
 //                 type="submit"
 //                 className="w-full rounded-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
 //               >
-//                 Send Inquiry
+//                 Send Enquiry
 //               </Button> */}
 //               <Button
 //                 type="submit"
 //                 disabled={loading}
 //                 className="w-full rounded-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
 //               >
-//                 {loading ? "Sending…" : "Send Inquiry"}
+//                 {loading ? "Sending…" : "Send Enquiry"}
 //               </Button>
 //             </form>
 //           </div>
@@ -958,8 +958,8 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
       }
 
       toast({
-        title: "Inquiry sent!",
-        description: "We've received your collaboration inquiry and will be in touch shortly.",
+        title: "Enquiry sent!",
+        description: "We've received your collaboration enquiry and will be in touch shortly.",
       });
 
       setForm({ name: "", email: "", organization: "", collaborationType: "", message: "" });
@@ -1025,7 +1025,7 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
             Partnering for Scientific Impact
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A look at our past collaborations across research, training, and capacity-building — and how to start a new one with us.
+            A look at our past collaborations across research, training, and capacity-building and how to start a new one with us.
           </p>
         </section>
 
@@ -1057,7 +1057,7 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                     <Calendar className="w-4 h-4 text-primary" />
                     <span>
-                      <span className="font-medium text-foreground">Date:</span> {c.dateFrom} – {c.dateTo}
+                      <span className="font-medium text-foreground">Date:</span> {c.dateFrom} - {c.dateTo}
                     </span>
                   </div>
 
@@ -1282,7 +1282,7 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
                     Sending…
                   </>
                 ) : (
-                  "Send Inquiry"
+                  "Send Enquiry"
                 )}
               </Button>
             </form>

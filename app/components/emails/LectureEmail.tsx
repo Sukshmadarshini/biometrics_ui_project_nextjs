@@ -87,7 +87,7 @@ export default function LectureEmail({
                     fontWeight: "bold",
                   }}
                 >
-                  Lecture Seat Reserved 🎓
+                  Lecture Seat Reserved
                 </Text>
                 <Text style={{ margin: 0, color: "#a7c4b5", fontSize: "13px" }}>
                   Sukshmadarshini™ Lecture Series
@@ -109,7 +109,7 @@ export default function LectureEmail({
                 lineHeight: "1.6",
               }}
             >
-              Thank you for registering for our upcoming lecture! 🎉 Your seat
+              Thank you for registering for our upcoming lecture. Your seat
               has been reserved. To secure your spot, please complete the
               payment using the details below.
             </Text>
@@ -158,7 +158,7 @@ export default function LectureEmail({
                 margin: "0 0 10px 0",
               }}
             >
-              💳 Payment Details
+              Payment Details
             </Text>
             <Section
               style={{
@@ -241,7 +241,7 @@ export default function LectureEmail({
                 margin: "-12px 0 20px 0",
               }}
             >
-              You can make the payment using any UPI app — Google Pay, PhonePe,
+              You can make the payment using any UPI app: Google Pay, PhonePe,
               Paytm, etc.
             </Text>
 
@@ -253,7 +253,7 @@ export default function LectureEmail({
                 margin: "0 0 10px 0",
               }}
             >
-              📱 QR Code Option
+              QR Code Option
             </Text>
             <Text
               style={{
@@ -287,7 +287,7 @@ export default function LectureEmail({
                 margin: "0 0 10px 0",
               }}
             >
-              ✅ After Payment
+              After Payment
             </Text>
             <Text
               style={{
@@ -296,7 +296,7 @@ export default function LectureEmail({
                 margin: "0 0 6px 0",
               }}
             >
-              Once you&apos;ve completed the payment, please{" "}
+              Once you have completed the payment, please{" "}
               <strong>reply to this email</strong> with:
             </Text>
             <Section
@@ -334,7 +334,7 @@ export default function LectureEmail({
                 margin: "0 0 10px 0",
               }}
             >
-              📌 Important
+              Important
             </Text>
             <Section
               style={{
@@ -352,14 +352,14 @@ export default function LectureEmail({
                   color: "#92400e",
                 }}
               >
-                ⚠️ Your seat is held temporarily — it will be{" "}
+                Your seat is held temporarily. it will be{" "}
                 <strong>
-                  auto-released if payment is not received 1 hour prior
+                  auto-released if payment is not received 1 day prior
                 </strong>{" "}
                 to the lecture.
               </Text>
               <Text style={{ margin: 0, fontSize: "14px", color: "#92400e" }}>
-                ⚠️ Your registration will be confirmed only after payment
+                Your registration will be confirmed only after payment
                 verification.
               </Text>
             </Section>
@@ -373,7 +373,7 @@ export default function LectureEmail({
               }}
             >
               If you have any questions or face any issues, feel free to reply
-              to this email — we&apos;re happy to help!
+              to this email: we are happy to help.
             </Text>
             <Text
               style={{
@@ -382,7 +382,7 @@ export default function LectureEmail({
                 margin: "0 0 24px 0",
               }}
             >
-              Looking forward to seeing you at the lecture 🚀
+              Looking forward to seeing you at the lecture.
               <br />
               <strong>Best regards,</strong>
               <br />
@@ -400,7 +400,7 @@ export default function LectureEmail({
             }}
           >
             <Text style={{ fontSize: "12px", color: "#6b7280", margin: 0 }}>
-              This email was sent from Sukshmadarshini™ · Reference:{" "}
+              This email was sent from Sukshmadarshini™ · Lecture Division.
               {transactionRef}
             </Text>
           </Section>
