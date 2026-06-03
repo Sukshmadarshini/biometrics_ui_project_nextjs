@@ -1,3 +1,5 @@
+// app/components/emails/WorkshopEmail.tsx
+
 import {
   Html,
   Head,

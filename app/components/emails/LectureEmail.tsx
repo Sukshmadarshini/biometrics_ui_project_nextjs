@@ -1,3 +1,5 @@
+// app/components/emails/LectureEmail.tsx
+
 import {
   Html,
   Head,

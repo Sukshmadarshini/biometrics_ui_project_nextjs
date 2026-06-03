@@ -222,7 +222,7 @@ export async function POST(req: NextRequest) {
       from: `Sukshmadarshini Blog <no-reply@${new URL(BASE_URL).hostname}>`,
       // from: `Sukshmadarshini Blog <onboarding@resend.dev>`,
       to: OWNER_EMAIL,
-      subject: `📝 New blog submission: "${title.trim()}"`,
+      subject: `New blog submission titled "${title.trim()}"`,
       html: await render(
         BlogOwnerReviewEmail({
           title: title.trim(),
@@ -242,7 +242,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: `Sukshmadarshini Blog <no-reply@${new URL(BASE_URL).hostname}>`,
         to: email.trim(),
-        subject: `✅ We received your blog — "${title.trim()}"`,
+        subject: `We received your blog titled "${title.trim()}"`,
         html: await render(
           BlogSubmissionReceivedEmail({
             author: author?.trim() || "there",

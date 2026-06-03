@@ -337,6 +337,33 @@ export async function getHomepage() {
         asset->{url}
       },
 
+      // ── Services (hero feature cards) ──────────────────────────────────────
+      services[]{
+        _key,
+        title,
+        description,
+        icon{ asset->{ url }, ...}
+      },
+
+      // ── Workshops section ───────────────────────────────────────────────────
+      workshopsSection{
+        badge,
+        heading,
+        subheading,
+        ctaLabel,
+        ctaHref
+      },
+ 
+      // ── Contact section ─────────────────────────────────────────────────────
+      contactSection{
+        badge,
+        heading,
+        subheading,
+        email,
+        phone,
+        location
+      },
+
       aboutTitle,
       aboutSubtitle1,
       aboutBody1,
@@ -642,5 +669,17 @@ export async function getPastInterns() {
     }`,
     {},
     { next: { revalidate: 30 } }
+  );
+}
+
+export async function getEmailTemplate(templateKey: string) {
+  return sanity.fetch(
+    `
+      *[
+        _type == "emailTemplate" &&
+        templateKey == $templateKey
+      ][0]
+    `,
+    { templateKey }
   );
 }

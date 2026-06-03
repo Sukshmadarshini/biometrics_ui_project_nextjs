@@ -11,6 +11,7 @@ export default async function HeroSectionWrapper() {
       heroTagline={home.heroTagline}
       heroImage={home.heroImage?.asset?.url}
       heroImageMobile={home.heroImageMobile?.asset?.url}
+      services={home.services ?? []}
     />
   );
 }

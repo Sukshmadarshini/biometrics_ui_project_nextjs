@@ -2,14 +2,16 @@
 import {HeroSection} from "./components/HeroSection"
 import {AboutSection} from "./components/AboutSection"
 // import {ServicesSection} from "./components/ServicesSection"
-import {TrainingsSection} from "./components/TrainingsSection"
+// import {TrainingsSection} from "./components/TrainingsSection"
+import TrainingsSectionWrapper from "./components/TrainingsSectionWrapper"
 // import {EventsSection} from "./components/EventsSection"
 // import {FounderInfo} from "./components/FounderInfo"
 import { Expertise } from "./components/Expertise"
 // import {GallerySection} from "./components/GallerySection"
 // import {StatsSection} from "./components/StatsSection"
 // import {ResourcesSection} from "./components/ResourcesSection"
-import {ContactSection} from "./components/ContactSection"
+// import {ContactSection} from "./components/ContactSection"
+import ContactSectionWrapper from "./components/ContactSectionWrapper"
 import HeroSectionWrapper from "./components/HeroSectionWrapper"
 import AboutSectionWrapper from "./components/AboutSectionWrapper"
 import ExpertiseWrapper from "./components/ExpertiseWrapper"
@@ -26,10 +28,10 @@ export default function HomePage() {
       <HeroSectionWrapper />
       <AboutSectionWrapper />
       <ExpertiseWrapper />
-      <TrainingsSection />
+      <TrainingsSectionWrapper />
       <PastAchievementsSectionWrapper />
       <TeamSectionWrapper />
-      <ContactSection />
+      <ContactSectionWrapper />
       {/* <EventsSection /> */}
       {/* <GallerySection /> */}
       {/* <StatsSection /> */}
