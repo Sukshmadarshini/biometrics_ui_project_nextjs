@@ -316,7 +316,9 @@ export async function POST(req: NextRequest) {
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
         subject: `Job Application for ${position} · ${name}`,
-        react:   CareerEmail({ name, email, position, whyHire, extracurriculars, emailContent: ownerEmailContent }),
+        react:   CareerEmail({ name, email, position,
+          //  whyHire, extracurriculars,
+            emailContent: ownerEmailContent }),
         attachments: [
           {
             filename:    safeFileName,

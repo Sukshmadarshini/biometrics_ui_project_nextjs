@@ -110,7 +110,6 @@ interface ReturnCareerEmailProps {
   name:         string;
   email:        string;
   position:     string;
-  whyHire:     string;
   emailContent: EmailContent;
 }
 
