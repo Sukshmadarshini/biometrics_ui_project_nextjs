@@ -1,7 +1,7 @@
 export const revalidate = 30;
 
 import BlogsAndTestimonies from "./BlogsandTestimonies";
-import { getBlogs, getTestimonies } from "../lib/queries";
+import { getBlogs, getTestimonies, getBlogsAndTestimonies  } from "../lib/queries";
 
 export const metadata = {
   title: "Agriculture and Plant Science Blogs",
@@ -42,8 +42,8 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const [blogs, testimonies] = await Promise.all([getBlogs(), getTestimonies()]);
+  const [blogs, testimonies, pageData] = await Promise.all([getBlogs(), getTestimonies(), getBlogsAndTestimonies()]);
   return <BlogsAndTestimonies 
-  blogs={blogs} testimonies={testimonies} 
+  blogs={blogs} testimonies={testimonies} badge={pageData?.badge} heading={pageData?.heading} subheading={pageData?.subheading}
   />;
 }

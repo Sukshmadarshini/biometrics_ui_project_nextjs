@@ -455,9 +455,15 @@ function getInitialLiked(): Record<string, boolean> {
 const BlogsAndTestimonies = ({
   blogs,
   testimonies,
+  badge,
+  heading,
+  subheading,
 }: {
   blogs: Blog[];
   testimonies: Testimony[];
+  badge?: string;
+  heading?: string;
+  subheading?: string;
 }) => {
   const [openBlog, setOpenBlog] = useState<Blog | null>(null);
   const [showWriteDialog, setShowWriteDialog] = useState(false);
@@ -630,13 +636,18 @@ const BlogsAndTestimonies = ({
         <section className="container mx-auto px-4 py-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
             <BookOpen className="w-4 h-4" />
-            <span className="text-sm font-medium">Blogs & Testimonies</span>
+            <span className="text-sm font-medium">
+              {/* Blogs & Testimonies */}
+              {badge}
+              </span>
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-bold text-gradient block mb-4">
-            Scientific Agriculture and Plant Science Insights
+            {/* Scientific Agriculture and Plant Science Insights */}
+            {heading}
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            Explore research-backed articles on agriculture, plant science, crop diagnostics, proteomics, sustainable farming, and scientific innovation in agriculture.
+            {/* Explore research-backed articles on agriculture, plant science, crop diagnostics, proteomics, sustainable farming, and scientific innovation in agriculture. */}
+            {subheading}
           </p>
           {/* Write a blog CTA */}
           <Button onClick={() => setShowWriteDialog(true)} className="gap-2">

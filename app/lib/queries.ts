@@ -353,33 +353,17 @@ export async function getTestimonies() {
   `);
 }
 
-// export async function getBlogsAndTestimonies() {
-//   return sanity.fetch(
-//     `*[_type == "blogsAndTestimonies"][0]{
-//       badge,
-//       heading,
-//       subheading,
-//       blogs[status == "published"]{
-//         "id": id.current,
-//         title,
-//         excerpt,
-//         content,
-//         author,
-//         date,
-//         readTime,
-//         likes,
-//         comments,
-//         submitterEmail,
-//         thumbnail{ asset->{ url }, alt }
-//       },
-//       testimonies[]| order(order asc){
-//         quote, name, role, organization
-//       }
-//     }`,
-//     {},
-//     { next: { revalidate: 30 } }
-//   );
-// }
+export async function getBlogsAndTestimonies() {
+  return sanity.fetch(
+    `*[_type == "blogsAndTestimonies"][0]{
+      badge,
+      heading,
+      subheading
+    }`,
+    {},
+    { next: { revalidate: 30 } }
+  );
+}
 
 // export async function getBlogsAndTestimonies() {
 //   return sanity.fetch(
