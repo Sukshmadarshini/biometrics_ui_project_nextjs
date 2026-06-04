@@ -62,7 +62,18 @@ export const metadata = {
 
 
 export default async function CollaborationsPage() {
-  const collaborations = await getCollaborations();
+  // const collaborations = await getCollaborations();
+  // const pastInterns = await getPastInterns();
+  const data = await getCollaborations();
   const pastInterns = await getPastInterns();
-  return <Collaborations collaborations={collaborations} pastInterns={pastInterns} />;
+  // return <Collaborations collaborations={collaborations} pastInterns={pastInterns} />;
+  return (
+    <Collaborations
+      collaborations={data.collaborations ?? []}
+      pastInterns={pastInterns}
+      badge={data.collaborationsPage?.badge}
+      heading={data.collaborationsPage?.heading}
+      subheading={data.collaborationsPage?.subheading}
+    />
+  );
 }

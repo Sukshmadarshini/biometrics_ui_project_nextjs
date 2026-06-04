@@ -693,6 +693,14 @@ import { Textarea } from "@/app/components/ui/textarea";
 import { useToast } from "@/app/hooks/use-toast";
 import Image from "next/image";
 
+interface CollaborationsProps {
+  collaborations: any[];
+  pastInterns: any[];
+  badge?: string;
+  heading?: string;
+  subheading?: string;
+}
+
 type Photo = {
   asset: { url: string };
 };
@@ -714,10 +722,10 @@ type PastIntern = {
   year: number;
 };
 
-type CollaborationsProps = {
-  collaborations: Collaboration[];
-  pastInterns: PastIntern[];
-};
+// type CollaborationsProps = {
+//   collaborations: Collaboration[];
+//   pastInterns: PastIntern[];
+// };
 
 type FormFields = {
   name: string;
@@ -797,7 +805,13 @@ type UniversityGroup = {
 //   },
 // ];
 
-export default function Collaborations({ collaborations = [], pastInterns = []  }: CollaborationsProps) {
+export default function Collaborations({ 
+  collaborations = [], 
+  pastInterns = [],
+  badge = "Collaborations",
+  heading = "Partnering for Scientific Impact",
+  subheading = "A look at our past collaborations across research, training, and capacity-building and how to start a new one with us.(This is static)"  
+}: CollaborationsProps) {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<FormFields>({
@@ -1019,13 +1033,15 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
         <section className="container mx-auto px-4 py-12 md:py-20 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary mb-6">
             <Handshake className="w-4 h-4" />
-            <span className="text-sm font-medium">Collaborations</span>
+            <span className="text-sm font-medium">{badge}</span>
           </div>
           <h1 className="font-display text-gradient text-4xl md:text-6xl font-bold mb-4">
-            Partnering for Scientific Impact
+            {/* Partnering for Scientific Impact */}
+            {heading}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A look at our past collaborations across research, training, and capacity-building and how to start a new one with us.
+            {/* A look at our past collaborations across research, training, and capacity-building and how to start a new one with us. */}
+            {subheading}
           </p>
         </section>
 
@@ -1074,7 +1090,7 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
                     </p>
                   )}
 
-                  {c.photos && c.photos.length > 0 && (
+                  {/* {c.photos && c.photos.length > 0 && (
                     <div className="grid grid-cols-3 gap-2 mt-4">
                       {c.photos.map((photo, i) => (
                         <Image
@@ -1088,7 +1104,7 @@ export default function Collaborations({ collaborations = [], pastInterns = []  
                         />
                       ))}
                     </div>
-                  )}
+                  )} */}
                 </article>
               ))}
             </div>
