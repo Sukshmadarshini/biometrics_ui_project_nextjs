@@ -22,6 +22,8 @@ import {
   CheckCheck,
   Gift,
   MapPin,
+  CircleAlert,
+  TriangleAlert,
 } from "lucide-react";
 import { Badge } from "../components/ui/badge";
 import { Separator } from "../components/ui/separator";
@@ -507,7 +509,7 @@ export default function ComplementaryLectureDetailDialog({
 
       {/* ── Registration Modal ── */}
       <Dialog open={showEnrollModal} onOpenChange={setShowEnrollModal}>
-        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-display">
               {step === "form" ? "Reserve Your Free Seat" : "Seat Confirmed!"}
@@ -623,6 +625,16 @@ export default function ComplementaryLectureDetailDialog({
                 A joining link or venue details will be shared closer to the
                 lecture date via the email you provided.
               </p>
+
+              <div className="text-sm text-muted-foreground p-3 rounded-md bg-orange-50 border border-orange-200 leading-relaxed">
+                <div className="flex flex-row items-center mb-1">
+                  <TriangleAlert className="w-4 h-4 mr-1 text-orange-400" />
+                  <span className="font-semibold text-xs text-orange-400">Important:</span>
+                </div>
+                <span className="font-semibold text-xs text-primary">
+                    We kindly request that you also check your spam or junk folder, as emails from our organization may occasionally be filtered there.
+                  </span>
+              </div>
 
               <Button className="w-full" onClick={handleDone}>
                 Done

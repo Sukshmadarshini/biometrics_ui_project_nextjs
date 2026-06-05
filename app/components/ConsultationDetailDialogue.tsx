@@ -1834,6 +1834,7 @@ import {
   Loader2,
   CheckCircle2,
   AlertCircle,
+  TriangleAlert,
 } from "lucide-react";
 
 import { Button } from "../components/ui/button";
@@ -2263,7 +2264,7 @@ export default function ConsultationDetailDialog({
 
       {/* ── Booking Modal ── */}
       <Dialog open={showBookModal} onOpenChange={handleModalClose}>
-        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-lg max-h-[96vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-display">
               {step === "form" && "Register Your Interest"}
@@ -2455,6 +2456,15 @@ export default function ConsultationDetailDialog({
                     It will auto-cancel if unpaid 1 day prior.
                   </span>
                 </div>
+              </div>
+              <div className="text-sm text-muted-foreground p-3 rounded-sm bg-orange-50 border border-orange-200 leading-relaxed">
+                <div className="flex flex-row items-center mb-1">
+                  <TriangleAlert className="w-4 h-4 mr-1 text-orange-400" />
+                  <span className="font-semibold text-xs text-orange-400">Important:</span>
+                </div>
+                <span className="font-semibold text-xs text-primary">
+                    We kindly request that you also check your spam or junk folder, as emails from our organization may occasionally be filtered there.
+                  </span>
               </div>
               <Button
                 className="w-full"
