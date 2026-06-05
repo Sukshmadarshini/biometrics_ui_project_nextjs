@@ -4,7 +4,7 @@ import { TrainingsSection } from "./TrainingsSection";
 export default async function TrainingsSectionWrapper() {
   const home = await getHomepage();
   const ws = home?.workshopsSection;
-  console.log(ws)
+  // console.log(ws)
  
   return (
     <TrainingsSection
