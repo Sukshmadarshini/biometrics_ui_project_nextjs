@@ -59,6 +59,18 @@ export async function getHomepage() {
   `);
 }
 
+export async function getProvidedServicesPageContent() {
+  return sanity.fetch(`
+    *[_type == "providedServices"][0]{
+      servicesPage{
+        badge,
+        heading,
+        subheading
+      }
+    }
+  `);
+}
+
 export async function getServices() {
   return sanity.fetch(`
     {

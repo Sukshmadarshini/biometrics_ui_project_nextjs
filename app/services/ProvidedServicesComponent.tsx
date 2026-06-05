@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Gift, Menu, X } from "lucide-react";
+import { Gift, Handshake, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { Clock, Users, Briefcase, CheckCircle, BookOpenText } from "lucide-react";
@@ -17,7 +17,7 @@ import WorkshopDetailDialog from "../components/WorkshopDetailDialogue";
 import LectureDetailDialog from "../components/LectureDetailDialogue";
 import ConsultationDetailDialog from "../components/ConsultationDetailDialogue";
 
-import { getServices } from "@/app/lib/queries";
+import { getServices, getProvidedServicesPageContent } from "@/app/lib/queries";
 import ComplementaryLectureDetailDialog from "../components/ComplementaryLectureDetailDialogue";
 
 /* ------------------ TYPES ------------------ */
@@ -45,7 +45,11 @@ export default function ServicesPage() {
     const [complementaryLectures, setComplementaryLectures] = useState<any[]>([]);
   const [workshops, setWorkshops] = useState<any[]>([]);
   const [consultationServices, setConsultationServices] = useState<any[]>([]);
-
+  const [pageContent, setPageContent] = useState<{
+  badge: string;
+  heading: string;
+  subheading: string;
+} | null>(null);
   const [selectedWorkshop, setSelectedWorkshop] = useState<any>(null);
   const [selectedLecture, setSelectedLecture] = useState<any>(null);
     const [selectedComplementaryLecture, setSelectedComplementaryLecture] = useState<any>(null);
@@ -91,6 +95,10 @@ export default function ServicesPage() {
     async function load() {
       try {
         const data = await getServices();
+        const pageData = await getProvidedServicesPageContent();
+        if (pageData?.servicesPage) {
+          setPageContent(pageData.servicesPage);
+        }
 
         setComplementaryLectures(
           (data.complementaryLectures || []).map((item: any) => ({
@@ -193,27 +201,6 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
 
       {/* NAV */}
-      {/* <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur-xl shadow-sm">
-        <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/official logo.svg"
-              alt="EyeIcon Navbar Logo"
-              width={56}
-              height={40}
-              className="object-contain"
-            />
-            <div className="flex flex-col">
-              <span className="font-display text-lg font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Sukshmadarshini Services
-              </span>
-              <span className="text-xs text-muted-foreground">
-                Insight Beyond Vision
-              </span>
-            </div>
-          </Link>
-        </div>
-      </nav> */}
       <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur-xl shadow-sm">
       <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4">
         
@@ -303,13 +290,31 @@ export default function ServicesPage() {
     </nav>
 
       {/* HEADER */}
-      <section className="container mx-auto px-4 py-14 text-center">
+      {/* <section className="container mx-auto px-4 py-14 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary mb-6">
+            <BookOpenText className="w-4 h-4" />
+            <span className="text-sm font-medium">Our Services</span>
+        </div>
         <h1 className="font-display text-4xl md:text-5xl font-bold text-gradient bg-clip-text text-transparent">
           Advanced Agri-Proteomics Workshops & Research Consulting
         </h1>
         <p className="text-muted-foreground mt-2 max-w-3xl mx-auto">
           Hands-on training, workflow consulting, and strategic mentorship in
           plant proteomics and molecular agriculture.
+        </p>
+      </section> */}
+      <section className="container mx-auto px-4 py-14 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary mb-6">
+          <BookOpenText className="w-4 h-4" />
+          <span className="text-sm font-medium">
+            {pageContent?.badge ?? "Our Services"}
+          </span>
+        </div>
+        <h1 className="font-display text-4xl md:text-5xl font-bold text-gradient bg-clip-text text-transparent">
+          {pageContent?.heading ?? "Advanced Agri-Proteomics Workshops & Research Consulting"}
+        </h1>
+        <p className="text-muted-foreground mt-2 max-w-3xl mx-auto">
+          {pageContent?.subheading ?? "Hands-on training, workflow consulting, and strategic mentorship in plant proteomics and molecular agriculture."}
         </p>
       </section>
 
