@@ -297,7 +297,7 @@ export default function BlogRejectedEmail({
             <Text style={{ fontSize: "14px", color: "#374151", lineHeight: "1.7" }}>
               {emailContent.contactLine}
               <br />
-              <strong>{ownerEmail}</strong>
+              {/* <strong>{ownerEmail}</strong> */}
             </Text>
           </Section>
 

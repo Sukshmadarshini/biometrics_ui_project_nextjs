@@ -381,6 +381,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
+        replyTo: process.env.EMAIL_TO!,
         subject: `Seat Confirmed for ${lectureTitle}: Registration complete`,
         react: ComplementaryLectureEmail({
           name, email, lectureTitle, lectureId, selectedSlot,
@@ -391,6 +392,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
+        replyTo: process.env.EMAIL_TO!,
         subject: `New Complementary Registration for ${lectureTitle}: ${name}`,
         react: ReturnComplementaryLectureEmail({
           name, email, lectureTitle, lectureId, selectedSlot,

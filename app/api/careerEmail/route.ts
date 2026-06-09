@@ -315,6 +315,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
+        replyTo: process.env.EMAIL_TO!,
         subject: `Job Application for ${position} · ${name}`,
         react:   CareerEmail({ name, email, position,
           //  whyHire, extracurriculars,
@@ -332,6 +333,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
+        replyTo: process.env.EMAIL_TO!,
         subject: `We received your application for ${position}`,
         react:   ReturnCareerEmail({ name, email, position, emailContent: clientEmailContent }),
       }),

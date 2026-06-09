@@ -267,6 +267,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
+        replyTo: process.env.EMAIL_TO!,
         subject: `Collaboration Enquiry for ${collaborationType} - ${organization}`,
         react:   CollaborationEmail({ name, email, organization, collaborationType, message, emailContent: ownerEmailContent }),
       }),
@@ -275,6 +276,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
+        replyTo: process.env.EMAIL_TO!,
         subject: `We received your collaboration enquiry for ${collaborationType}`,
         react:   ReturnCollaborationEmail({ name, email, organization, collaborationType, message, emailContent: clientEmailContent }),
       }),

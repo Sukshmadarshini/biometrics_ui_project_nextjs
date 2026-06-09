@@ -374,6 +374,7 @@ export async function POST(req: NextRequest) {
       from:    `Sukshmadarshini Blog <no-reply@${new URL(BASE_URL).hostname}>`,
       // from: `Sukshmadarshini Blog <onboarding@resend.dev>`,
       to:      OWNER_EMAIL,
+      replyTo: process.env.EMAIL_TO!,
       subject: `New blog submission titled "${title.trim()}"`,
       html: await render(
         BlogOwnerReviewEmail({
@@ -396,6 +397,7 @@ export async function POST(req: NextRequest) {
         from:    `Sukshmadarshini Blog <no-reply@${new URL(BASE_URL).hostname}>`,
         // from: `Sukshmadarshini Blog <onboarding@resend.dev>`,
         to:      email.trim(),
+        replyTo: process.env.EMAIL_TO!,
         subject: `We received your blog titled "${title.trim()}"`,
         html: await render(
           BlogSubmissionReceivedEmail({

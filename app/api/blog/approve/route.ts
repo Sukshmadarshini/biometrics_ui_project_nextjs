@@ -425,6 +425,7 @@ export async function GET(req: NextRequest) {
           from:    `Sukshmadarshini Blog <no-reply@${new URL(BASE_URL).hostname}>`,
           // from: `Sukshmadarshini Blog <onboarding@resend.dev>`,
           to:      submitterEmail,
+          replyTo: process.env.EMAIL_TO!,
           subject: `Your blog post is live: "${blogTitle}"`,
           html: await render(
             BlogApprovedEmail({
@@ -456,6 +457,7 @@ export async function GET(req: NextRequest) {
           from:    `Sukshmadarshini Blog <no-reply@${new URL(BASE_URL).hostname}>`,
           // from: `Sukshmadarshini Blog <onboarding@resend.dev>`,
           to:      submitterEmail,
+          replyTo: process.env.EMAIL_TO!,
           subject: `Blog submission update: "${blogTitle}"`,
           html: await render(
             BlogRejectedEmail({

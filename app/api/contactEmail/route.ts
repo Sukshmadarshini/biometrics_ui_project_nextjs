@@ -370,6 +370,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.OWNER_EMAIL_FROM!,
         to:      process.env.EMAIL_TO!,
+        replyTo: process.env.EMAIL_TO!,
         subject: `Contact Form: ${subject}`,
         react:   ContactEmail({ name, email, subject, message, emailContent: ownerEmailContent }),
       }),
@@ -378,6 +379,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from:    process.env.CLIENT_EMAIL_FROM!,
         to:      email,
+        replyTo: process.env.EMAIL_TO!,
         subject: `We received your message: ${subject}`,
         react:   ReturnContactEmail({ name, email, subject, message, emailContent: clientEmailContent }),
       }),
