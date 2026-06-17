@@ -230,6 +230,7 @@ interface ReturnComplementaryLectureEmailProps {
   lectureId:       string;
   selectedSlot:    string;
   mode:            string;
+  time?:           string | null;
   duration:        string;
   registrationRef: string;
   emailContent:    EmailContent;
@@ -241,17 +242,16 @@ export default function ReturnComplementaryLectureEmail({
   lectureTitle,
   selectedSlot,
   mode,
+  time,
   duration,
   registrationRef,
   emailContent,
 }: ReturnComplementaryLectureEmailProps) {
-  const slotDate = new Date(selectedSlot).toLocaleString("en-IN", {
+  const [year, month, day] = selectedSlot.split("T")[0].split("-").map(Number);
+  const slotDate = new Date(year, month - 1, day).toLocaleDateString("en-IN", {
     weekday: "long",
-    month:   "long",
-    day:     "numeric",
-    hour:    "2-digit",
-    minute:  "2-digit",
-    timeZone: "Asia/Kolkata",
+    month: "long",
+    day: "numeric",
   });
 
   const registeredAt = new Date().toLocaleString("en-IN", {
@@ -259,8 +259,8 @@ export default function ReturnComplementaryLectureEmail({
     month:   "short",
     day:     "numeric",
     year:    "numeric",
-    hour:    "2-digit",
-    minute:  "2-digit",
+    // hour:    "2-digit",
+    // minute:  "2-digit",
     timeZone: "Asia/Kolkata",
   });
 
@@ -333,7 +333,7 @@ export default function ReturnComplementaryLectureEmail({
                 {lectureTitle}
               </Text>
               <Text style={{ margin: "6px 0 0 0", fontSize: "13px", color: "#374151" }}>
-                📅 {slotDate} IST
+                📅 {slotDate}{time ? ` at ${time} IST` : "NA"}
               </Text>
               <Text style={{ margin: "4px 0 0 0", fontSize: "13px", color: "#374151" }}>
                 🎙️ Mode: {mode} &nbsp;|&nbsp; ⏱️ Duration: {duration}

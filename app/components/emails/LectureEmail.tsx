@@ -434,6 +434,7 @@ interface LectureEmailProps {
   lectureTitle:  string;
   lectureId:     string;
   price:         string;
+  time?: string | null;
   amountNumeric: number;
   selectedSlot:  string;
   upiId:         string;
@@ -447,6 +448,7 @@ export default function LectureEmail({
   name,
   lectureTitle,
   price,
+  time,
   selectedSlot,
   upiId,
   transactionRef,
@@ -457,9 +459,6 @@ export default function LectureEmail({
     weekday: "long",
     month: "long",
     day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "Asia/Kolkata",
   });
 
   return (
@@ -535,7 +534,7 @@ export default function LectureEmail({
                 {lectureTitle}
               </Text>
               <Text style={{ margin: "4px 0 0 0", fontSize: "13px", color: "#374151" }}>
-                📅 {slotDate} IST
+                📅 {slotDate}{time ? ` at ${time} IST` : "NA"}
               </Text>
             </Section>
 

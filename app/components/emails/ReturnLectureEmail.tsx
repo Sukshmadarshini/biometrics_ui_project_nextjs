@@ -236,6 +236,7 @@ interface ReturnLectureEmailProps {
   lectureTitle:  string;
   lectureId:     string;
   price:         string;
+  time?: string | null;
   amountNumeric: number;
   selectedSlot:  string;
   transactionRef:string;
@@ -247,6 +248,7 @@ export default function ReturnLectureEmail({
   email,
   lectureTitle,
   price,
+  time,
   selectedSlot,
   transactionRef,
   emailContent,
@@ -255,9 +257,6 @@ export default function ReturnLectureEmail({
     weekday: "long",
     month:   "long",
     day:     "numeric",
-    hour:    "2-digit",
-    minute:  "2-digit",
-    timeZone: "Asia/Kolkata",
   });
 
   const registeredAt = new Date().toLocaleString("en-IN", {
@@ -265,9 +264,6 @@ export default function ReturnLectureEmail({
     month:   "short",
     day:     "numeric",
     year:    "numeric",
-    hour:    "2-digit",
-    minute:  "2-digit",
-    timeZone: "Asia/Kolkata",
   });
 
   return (
@@ -339,7 +335,7 @@ export default function ReturnLectureEmail({
                 {lectureTitle}
               </Text>
               <Text style={{ margin: "4px 0 0 0", fontSize: "13px", color: "#374151" }}>
-                📅 {slotDate} IST
+                📅 {slotDate}{time ? ` at ${time} IST` : "NA"}
               </Text>
             </Section>
 
